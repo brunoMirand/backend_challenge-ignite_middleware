@@ -1,29 +1,18 @@
 const express = require('express');
 const cors = require('cors');
-
-const { v4: uuidv4, validate } = require('uuid');
+const { v4: uuidv4 } = require('uuid');
+const { users } = require('./service/userService');
+const {
+  checksExistsUserAccount,
+  checksCreateTodosUserAvailability,
+  checksTodoExists,
+  findUserById
+} = require('./middleware');
 
 const app = express();
 app.use(express.json());
 app.use(cors());
 
-const users = [];
-
-function checksExistsUserAccount(request, response, next) {
-  // Complete aqui
-}
-
-function checksCreateTodosUserAvailability(request, response, next) {
-  // Complete aqui
-}
-
-function checksTodoExists(request, response, next) {
-  // Complete aqui
-}
-
-function findUserById(request, response, next) {
-  // Complete aqui
-}
 
 app.post('/users', (request, response) => {
   const { name, username } = request.body;
